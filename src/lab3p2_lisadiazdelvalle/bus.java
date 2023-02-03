@@ -19,7 +19,12 @@ public class bus extends vehiculo{
     public bus(int pasajeros, String tipo, String color, String marca, int anio, double precio, int llantas) {
         super(color, marca, anio, precio, llantas);
         this.pasajeros = pasajeros;
-        this.tipo = tipo;
+        if (pasajeros > 50){
+           this.tipo = "De Ruta"; 
+        }else{
+            this.tipo = "Rapidito";
+        }
+        
     }
 
     public int getPasajeros() {

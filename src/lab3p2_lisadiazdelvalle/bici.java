@@ -8,7 +8,8 @@ package lab3p2_lisadiazdelvalle;
  *
  * @author HTS
  */
-public class bici extends vehiculo{
+public class bici extends vehiculo {
+
     private String descripcion;
     private int radio;
     private boolean tipo;
@@ -50,10 +51,15 @@ public class bici extends vehiculo{
 
     @Override
     public String toString() {
-        return super.toString()+"bici{" + "descripcion=" + descripcion + ", radio=" + radio + ", tipo=" + tipo + '}';
+        String s = super.toString() + "bici{" + "descripcion=" + descripcion + ", radio=" + radio;
+        if (tipo) {
+            s += "tipo= BMX";
+        } else {
+
+            s += "tipo= DE CALLE";
+        }
+        
+        return s;
     }
-    
-    
-    
-    
+
 }

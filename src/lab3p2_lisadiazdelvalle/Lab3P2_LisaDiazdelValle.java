@@ -259,7 +259,7 @@ public class Lab3P2_LisaDiazdelValle {
                         }
                         break;
                         case 2: {
-                            electrica = true;
+                            electrica = false;
                         }
                         break;
                     }
@@ -278,17 +278,87 @@ public class Lab3P2_LisaDiazdelValle {
                     System.out.println("Su bici es BMX o de calle?");
                     System.out.println("1. BMX");
                     System.out.println("2. De calle");
-                    
-
-                }
-                break;
+                    System.out.println("Ingrese la opcion: ");
+                    int tipo = leer.nextInt();
+                    boolean bmx = false;
+                    switch (tipo){
+                        case 1:{
+                            bmx = true;
+                        }break;
+                        case 2:{
+                            bmx = false;
+                        }break;
+                    }
+                    bici nuevabici;
+                    nuevabici = new bici (descrip, radio, bmx, color, marca, anio, precio, llantas);
+                    vehi.add(nuevabici);
+                    return nuevabici;
+                }             
                 default: {
                     System.out.println("Opcion no validad");
                 }
             }
+        }else if(llantas == 4){
+            System.out.println("1. Carro");
+            System.out.println("2. Camion de carga");
+            System.out.println("3. Bus");
+            System.out.println("Ingrese la opcion: ");
+            int opcion = leer.nextInt();
+            
+            switch (opcion){
+                case 1:{
+                    System.out.println("--CARRO--");
+                    System.out.println("Ingrese la cantidad de puertas: ");
+                    int puertas = leer.nextInt();
+                    System.out.println("Ingrese la descripcion del motor: ");
+                    String descrip = leer.next();
+                    System.out.println("Ingrese la velocidad maxima: ");
+                    int vel = leer.nextInt();
+                    carro nuevocarro;
+                    nuevocarro = new carro (puertas, descrip, vel, color, marca, anio, precio, llantas);
+                    vehi.add(nuevocarro);
+                    return nuevocarro;                   
+                }
+                case 2:{
+                    System.out.println("--CAMION DE CARGA--");
+                    System.out.println("Ingrese el volumen maximo de carga: ");
+                    int vol = leer.nextInt();
+                    System.out.println("Ingrese la altura: ");
+                    int alt = leer.nextInt();
+                    System.out.println("Tiene retroexcavadora?");
+                    System.out.println("1. si");
+                    System.out.println("2. no");
+                    System.out.println("Ingrese la opcion: ");
+                    int op = leer.nextInt();
+                    boolean retro = false;
+                    switch (op){
+                        case 1:{
+                            retro = true;
+                        }break;
+                        case 2:{
+                            retro = false;
+                        }break;
+                    }
+                    camion nuevocamion;
+                    nuevocamion = new camion (vol,alt,retro,color,marca,anio,precio,llantas);
+                    vehi.add(nuevocamion);
+                    return nuevocamion;
+                }
+                case 3:{
+                    System.out.println("--BUS--");
+                    System.out.println("Ingrese la capacidad de pasajeros: ");
+                    int pasa = leer.nextInt();
+                    String s = "";
+                    bus nuevobus;
+                    nuevobus = new bus (pasa,s,color,marca,anio,precio,llantas);
+                    vehi.add(nuevobus);
+                    return nuevobus;
+                }
+                
+            }
         }
 
-        return nuevoveh;
+        return new vehiculo();
     }
 
     static clientes newCliente() {
