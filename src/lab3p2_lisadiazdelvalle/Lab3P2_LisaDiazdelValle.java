@@ -265,6 +265,7 @@ public class Lab3P2_LisaDiazdelValle {
                                     ((clientes) cliente.get(poscliente)).getVehiculos().add(vehi.get(posicion));
                                     System.out.println(cliente);
                                     double nuevodineroconce = dineroc + preciocarro;
+                                    ((consecionaria) conse.get(posicion)).getCliente().add(cliente.get(poscliente));
                                     ((consecionaria) conse.get(posicion)).setSaldo(nuevodineroconce);
                                 } else {
                                     System.out.println("La posicion es incorrecta o su saldo es insuficiente");

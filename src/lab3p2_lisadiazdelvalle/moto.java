@@ -40,7 +40,15 @@ public class moto extends vehiculo {
 
     @Override
     public String toString() {
-        return super.toString()+"moto{" + "desplazamiento=" + desplazamiento + ", electrica=" + electrica + '}';
+        String s = super.toString()+"\nMOTO" +"\n{" + "desplazamiento=" + desplazamiento;
+        if (electrica) {
+            s += "electrica"+"}";
+        } else {
+
+            s += "de calle" +"}";
+        }
+        
+        return s;
     }
     
     

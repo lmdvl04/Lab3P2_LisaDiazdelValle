@@ -70,7 +70,7 @@ public class vehiculo {
 
     @Override
     public String toString() {
-        return "vehiculo{" + "color=" + color + ", marca=" + marca + ", anio=" + anio + ", precio=" + precio + ", llantas=" + llantas + '}';
+        return "\nVEHICULO"+"\n{" + "Color:" + color + ", Marca:" + marca + ", Anio:" + anio + ", Precio: Lps. " + precio + ", Llantas:" + llantas + '}';
     }
     
     

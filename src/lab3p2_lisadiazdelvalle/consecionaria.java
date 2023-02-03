@@ -78,7 +78,7 @@ public class consecionaria {
 
     @Override
     public String toString() {
-        return "consecionaria{" + "nombre=" + nombre + ", id=" + id + ", direccion=" + direccion + ", vehiculos=" + vehiculos + ", cliente=" + cliente + ", saldo=" + saldo + '}';
+        return "\nCONCENSIONARIA" +"\n{" + "Nombre:" + nombre + ", ID:" + id + ", Direccion:" + direccion + ", Vehiculos:" + vehiculos + ", Cliente:" + cliente + ", Saldo:" + saldo + '}';
     }
     
     

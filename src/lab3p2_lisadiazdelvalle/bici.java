@@ -53,10 +53,10 @@ public class bici extends vehiculo {
     public String toString() {
         String s = super.toString() + "bici{" + "descripcion=" + descripcion + ", radio=" + radio;
         if (tipo) {
-            s += "tipo= BMX";
+            s += "tipo= BMX" +"}";
         } else {
 
-            s += "tipo= DE CALLE";
+            s += "tipo= DE CALLE"+"}";
         }
         
         return s;

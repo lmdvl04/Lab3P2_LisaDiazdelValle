@@ -53,7 +53,15 @@ public class camion extends vehiculo {
 
     @Override
     public String toString() {
-        return super.toString() + "camion{" + "volumen=" + volumen + ", altura=" + altura + ", retroexcavadora=" + retroexcavadora + '}';
+        String s = super.toString() + "\nCAMION" +"\n{" + "Volumen:" + volumen + ", Altura:" + altura ;
+        if (retroexcavadora) {
+            s += "retroexcavadora= si" + "}";
+        } else {
+
+            s += "retroexcavadora= no" +"}";
+        }
+        
+        return s;
     }
 
 }
