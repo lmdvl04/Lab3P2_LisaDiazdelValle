@@ -19,7 +19,7 @@ public class carro extends vehiculo{
        super();
     }
 
-    public carro(int puertas, String descMotor, int velMax, Color color, String marca, int anio, double precio, int llantas) {
+    public carro(int puertas, String descMotor, int velMax, String color, String marca, int anio, double precio, int llantas) {
         super(color, marca, anio, precio, llantas);
         this.puertas = puertas;
         this.descMotor = descMotor;
@@ -50,6 +50,7 @@ public class carro extends vehiculo{
         this.velMax = velMax;
     }
 
+   
     @Override
     public String toString() {
         return super.toString()+"carro{" + "puertas=" + puertas + ", descMotor=" + descMotor + ", velMax=" + velMax + '}';

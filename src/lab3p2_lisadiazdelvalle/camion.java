@@ -10,7 +10,8 @@ import java.awt.Color;
  *
  * @author HTS
  */
-public class camion extends vehiculo{
+public class camion extends vehiculo {
+
     private int volumen;
     private int altura;
     private boolean retroexcavadora;
@@ -19,7 +20,7 @@ public class camion extends vehiculo{
         super();
     }
 
-    public camion(int volumen, int altura, boolean retroexcavadora, Color color, String marca, int anio, double precio, int llantas) {
+    public camion(int volumen, int altura, boolean retroexcavadora, String color, String marca, int anio, double precio, int llantas) {
         super(color, marca, anio, precio, llantas);
         this.volumen = volumen;
         this.altura = altura;
@@ -52,10 +53,7 @@ public class camion extends vehiculo{
 
     @Override
     public String toString() {
-        return super.toString()+"camion{" + "volumen=" + volumen + ", altura=" + altura + ", retroexcavadora=" + retroexcavadora + '}';
+        return super.toString() + "camion{" + "volumen=" + volumen + ", altura=" + altura + ", retroexcavadora=" + retroexcavadora + '}';
     }
-    
-    
-    
-    
+
 }
