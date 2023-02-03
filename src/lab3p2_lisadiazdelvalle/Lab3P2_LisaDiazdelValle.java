@@ -81,15 +81,14 @@ public class Lab3P2_LisaDiazdelValle {
 
                     } while (menuconce != 4);
                 }
-                break;
+                break;//fin case 1 principal
                 case 2: {
                     int menucliente = 0;
                     do {
                         System.out.println("---CRUD CLIENTE---");
                         System.out.println("1. Anadir");
-                        System.out.println("2. Modificar");
-                        System.out.println("3. Eliminar");
-                        System.out.println("4. Volver");
+                        System.out.println("2. Eliminar");
+                        System.out.println("3. Volver");
                         System.out.println("Ingrese la opcion: ");
                         menucliente = leer.nextInt();
 
@@ -100,36 +99,128 @@ public class Lab3P2_LisaDiazdelValle {
                             break;
                             case 2: {
                                 System.out.println(cliente);
-                                System.out.println("Ingrese la posicion a modificar: ");
-                                int posicion = leer.nextInt();
-                                if (posicion >= 0 & posicion < cliente.size()) {
-                                    if (cliente.get(posicion) instanceof clientes && posicion >= 0 && posicion < cliente.size()) {
-                                        System.out.println("Ingrese la nueva direccion: ");
-                                        String dir = leer.next();
-                                        ((consecionaria) conse.get(posicion)).setDireccion(dir);
-                                    } else {
-                                        System.out.println("La posicion entregada no es valida");
-
-                                    }
-                                }
-
-                            }
-                            break;
-                            case 3: {
-                                System.out.println(conse);
                                 System.out.println("Que posicion quiere eliminar: ");
                                 int posicion = leer.nextInt();
-                                if (posicion < conse.size() && posicion >= 0) {
-                                    conse.remove(posicion);
+                                if (posicion < cliente.size() && posicion >= 0) {
+                                    cliente.remove(posicion);
                                 }
-
                             }
                             break;
                         }
 
-                    } while (menucliente != 4);
+                    } while (menucliente != 3);
                 }
-                break;
+                break;//fin case 2 principal
+                case 3: {
+                    int menuvehi = 0;
+                    do {
+                        System.out.println("---CRUD VEHICULO---");
+                        System.out.println("1. Anadir");
+                        System.out.println("2. Modificar");
+                        System.out.println("3. Eliminar");
+                        System.out.println("4. Volver");
+                        System.out.println("Ingrese la opcion: ");
+                        menuvehi = leer.nextInt();
+
+                        switch (menuvehi) {
+                            case 1: {
+                                vehi.add(newVehi());
+
+                            }
+                            break;
+                            case 2: {
+                                int modvehi = 0;
+                                System.out.println(vehi);
+                                System.out.println("Ingrese la posicion a modificar: ");
+                                int posicion = leer.nextInt();
+                                do {
+                                    System.out.println("---QUE QUIERE MODIFICAR---");
+                                    System.out.println("1. Color");
+                                    System.out.println("2. Marca");
+                                    System.out.println("3. Anio");
+                                    System.out.println("4. Precio");
+                                    System.out.println("5. Llantas");
+                                    System.out.println("6. Volver");
+                                    System.out.println("Ingrese la opcion: ");
+                                    modvehi = leer.nextInt();
+
+                                    switch (modvehi) {
+                                        case 1: {
+                                            if (posicion >= 0 & posicion < vehi.size()) {
+                                                if (vehi.get(posicion) instanceof vehiculo && posicion >= 0 && posicion < vehi.size()) {
+                                                    System.out.println("Elija el nuevo color: ");
+                                                    String color = leer.next();
+                                                    ((vehiculo) vehi.get(posicion)).setColor(color);
+                                                } else {
+                                                    System.out.println("La posicion entregada no es valida");
+
+                                                }
+                                            }
+                                        }
+                                        break;
+                                        case 2: {
+                                            if (posicion >= 0 & posicion < vehi.size()) {
+                                                if (vehi.get(posicion) instanceof vehiculo && posicion >= 0 && posicion < vehi.size()) {
+                                                    System.out.println("Ingrese la nueva marca: ");
+                                                    String m = leer.next();
+                                                    ((vehiculo) vehi.get(posicion)).setMarca(m);
+                                                } else {
+                                                    System.out.println("La posicion entregada no es valida");
+
+                                                }
+                                            }
+                                        }
+                                        break;
+                                        case 3: {
+                                            if (posicion >= 0 & posicion < vehi.size()) {
+                                                if (vehi.get(posicion) instanceof vehiculo && posicion >= 0 && posicion < vehi.size()) {
+                                                    System.out.println("Ingrese el nuevo anio: ");
+                                                    int anio = leer.nextInt();
+                                                    ((vehiculo) vehi.get(posicion)).setAnio(anio);
+                                                } else {
+                                                    System.out.println("La posicion entregada no es valida");
+
+                                                }
+                                            }
+                                        }
+                                        break;
+                                        case 4: {
+                                            if (posicion >= 0 & posicion < vehi.size()) {
+                                                if (vehi.get(posicion) instanceof vehiculo && posicion >= 0 && posicion < vehi.size()) {
+                                                    System.out.println("Ingrese el nuevo precio: ");
+                                                    double p = leer.nextDouble();
+                                                    ((vehiculo) vehi.get(posicion)).setPrecio(p);
+                                                } else {
+                                                    System.out.println("La posicion entregada no es valida");
+
+                                                }
+                                            }
+                                        }
+                                        break;
+                                        case 5: {
+                                            if (posicion >= 0 & posicion < vehi.size()) {
+                                                if (vehi.get(posicion) instanceof vehiculo && posicion >= 0 && posicion < vehi.size()) {
+                                                    System.out.println("Ingrese la nueva cantidad de llantas: ");
+                                                    int llan = leer.nextInt();
+                                                    ((vehiculo) vehi.get(posicion)).setLlantas(llan);
+                                                } else {
+                                                    System.out.println("La posicion entregada no es valida");
+
+                                                }
+                                            }
+                                        }
+                                        break;
+
+                                    }
+
+                                } while (modvehi != 6);
+                            }
+                            break;
+                        }
+
+                    } while (menuvehi != 5);
+                }
+                break; //fin case 3 principal
             }
         } while (menu != 5);
     }
@@ -146,8 +237,57 @@ public class Lab3P2_LisaDiazdelValle {
         double precio = leer.nextDouble();
         System.out.println("Ingrese la cantidad de llantas: ");
         int llantas = leer.nextInt();
-        vehiculo nuevoveh;
-        nuevoveh = new vehiculo(color, marca, anio, precio, llantas);
+        if (llantas == 2) {
+            System.out.println("1. Moto");
+            System.out.println("2. Bici");
+            System.out.println("Ingrese la opcion: ");
+            int opcion = leer.nextInt();
+            switch (opcion) {
+                case 1: {
+                    System.out.println("--MOTO--");
+                    System.out.println("Ingrese el desplazamiento de su motor: ");
+                    int des = leer.nextInt();
+                    System.out.println("Su moto es electrica?");
+                    System.out.println("1. si");
+                    System.out.println("2. no");
+                    System.out.println("Ingrese la opcion: ");
+                    int elec = leer.nextInt();
+                    boolean electrica = false;
+                    switch (elec) {
+                        case 1: {
+                            electrica = true;
+                        }
+                        break;
+                        case 2: {
+                            electrica = true;
+                        }
+                        break;
+                    }
+                    moto nuevamoto;
+                    nuevamoto = new moto(des, electrica, color, marca, anio, precio, llantas);
+                    vehi.add(nuevamoto);
+                    return nuevamoto;
+                }
+                //break;
+                case 2: {
+                    System.out.println("--BICICLETA--");
+                    System.out.println("Ingrese la descripcion:");
+                    String descrip = leer.next();
+                    System.out.println("Ingrese el radio de la rueda");
+                    int radio = leer.nextInt();
+                    System.out.println("Su bici es BMX o de calle?");
+                    System.out.println("1. BMX");
+                    System.out.println("2. De calle");
+                    
+
+                }
+                break;
+                default: {
+                    System.out.println("Opcion no validad");
+                }
+            }
+        }
+
         return nuevoveh;
     }
 
