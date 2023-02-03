@@ -223,8 +223,28 @@ public class Lab3P2_LisaDiazdelValle {
                     } else {
                         System.out.println("Necesita crear al menos una concesionaria");
                     }
-                    break; //fin case 3 principal
                 }
+                break; //fin case 3 principal
+                case 4: {
+                    System.out.println("--COMPRA/VENTA--");
+                    String listav = "";
+                    for (Object v : vehi) {
+                        if (v instanceof vehiculo) {
+                            listav += "" + vehi.indexOf(v) + " : " + v + "\n";
+                        }
+                    }
+                    System.out.println(listav);
+                    System.out.println("Ingrese el indice que quiere comprar");
+                    int posicion = leer.nextInt();
+                    if (vehi.get(posicion) instanceof vehiculo && posicion >= 0 && posicion < vehi.size()) {
+                        vehi.remove(posicion);
+                        ((clientes)cliente.get(posicion)).getVehiculos().add(vehi.get(posicion));
+                        System.out.println(cliente);
+                       
+                    }
+
+                }
+                break;//fin case 4 principal
             }
         } while (menu != 5);
     }
