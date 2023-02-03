@@ -226,41 +226,90 @@ public class Lab3P2_LisaDiazdelValle {
                 }
                 break; //fin case 3 principal
                 case 4: {
-                    System.out.println("--COMPRA/VENTA--");
-                    String listav = "";
-                    for (Object v : vehi) {
-                        if (v instanceof vehiculo) {
-                            listav += "" + vehi.indexOf(v) + " : " + v + "\n";
+                    int compra = 0;
+                    do {
+                        System.out.println("--COMPRA/VENTA--");
+                        System.out.println("Quien compra?");
+                        System.out.println("1. Cliente");
+                        System.out.println("2. Concensionaria");
+                        System.out.println("Ingrese la opcion: ");
+                        compra = leer.nextInt();
+                        switch (compra) {
+                            case 1: {
+                                String listav = "";
+                                for (Object v : vehi) {
+                                    if (v instanceof vehiculo) {
+                                        listav += "" + vehi.indexOf(v) + " : " + v + "\n";
+                                    }
+                                }
+                                String listac = "";
+                                for (Object c : cliente) {
+                                    if (c instanceof clientes) {
+                                        listac += "" + cliente.indexOf(c) + " : " + c + "\n";
+                                    }
+                                }
+                                System.out.println(listav);
+                                System.out.println(listac);
+
+                                System.out.println("Ingrese el indice del cliente que esta comprando: ");
+                                int poscliente = leer.nextInt();
+                                System.out.println("Ingrese el indice que quiere comprar");
+                                int posicion = leer.nextInt();
+
+                                double saldocliente = ((clientes) cliente.get(poscliente)).getSaldo();
+                                double preciocarro = ((vehiculo) vehi.get(posicion)).getPrecio();
+                                double dineroc = ((consecionaria) conse.get(posicion)).getSaldo();
+
+                                if (vehi.get(posicion) instanceof vehiculo && posicion >= 0 && posicion < vehi.size() && saldocliente > preciocarro) {
+                                    vehi.remove(posicion);
+                                    ((clientes) cliente.get(poscliente)).getVehiculos().add(vehi.get(posicion));
+                                    System.out.println(cliente);
+                                    double nuevodineroconce = dineroc + preciocarro;
+                                    ((consecionaria) conse.get(posicion)).setSaldo(nuevodineroconce);
+                                } else {
+                                    System.out.println("La posicion es incorrecta o su saldo es insuficiente");
+                                }
+                            }
+                            break;
+                            case 2: {
+                                String listav = "";
+                                for (Object v : vehi) {
+                                    if (v instanceof vehiculo) {
+                                        listav += "" + vehi.indexOf(v) + " : " + v + "\n";
+                                    }
+                                }
+                                String listac = "";
+                                for (Object c : conse) {
+                                    if (c instanceof consecionaria) {
+                                        listac += "" + conse.indexOf(c) + " : " + c + "\n";
+                                    }
+                                }
+                                System.out.println(listav);
+                                System.out.println(listac);
+
+                                System.out.println("Ingrese el indice de concesionaria que esta comprando: ");
+                                int poscon = leer.nextInt();
+                                System.out.println("Ingrese el indice que quiere comprar");
+                                int posicion = leer.nextInt();
+
+                              
+                                double preciocarro = ((vehiculo) vehi.get(posicion)).getPrecio();
+                                double dineroc = ((consecionaria) conse.get(posicion)).getSaldo();
+
+                                if (vehi.get(posicion) instanceof vehiculo && posicion >= 0 && posicion < vehi.size() && dineroc > preciocarro) {
+                                    vehi.remove(posicion);
+                                    ((consecionaria) conse.get(poscon)).getVehiculos().add(vehi.get(posicion));
+                                    System.out.println(conse);
+                                    double nuevodineroconce = dineroc - preciocarro;
+                                    ((consecionaria) conse.get(posicion)).setSaldo(nuevodineroconce);
+                                } else {
+                                    System.out.println("La posicion es incorrecta o su saldo es insuficiente");
+                                }
+                            }
+                            break;
                         }
-                    }
-                    String listac = "";
-                    for (Object c : cliente) {
-                        if (c instanceof clientes) {
-                            listac += "" + cliente.indexOf(c) + " : " + c + "\n";
-                        }
-                    }
-                    System.out.println(listav);
-                    System.out.println(listac);
 
-                    System.out.println("Ingrese el indice del cliente que esta comprando: ");
-                    int poscliente = leer.nextInt();
-                    System.out.println("Ingrese el indice que quiere comprar");
-                    int posicion = leer.nextInt();
-
-                    double saldocliente = ((clientes) cliente.get(poscliente)).getSaldo();
-                    double preciocarro = ((vehiculo) vehi.get(posicion)).getPrecio();
-                    double dineroc = ((consecionaria) conse.get(posicion)).getSaldo();
-
-                    if (vehi.get(posicion) instanceof vehiculo && posicion >= 0 && posicion < vehi.size() && saldocliente > preciocarro) {
-                        vehi.remove(posicion);
-                        ((clientes) cliente.get(poscliente)).getVehiculos().add(vehi.get(posicion));
-                        System.out.println(cliente);
-                        double nuevodineroconce = dineroc + preciocarro;
-                        ((consecionaria)conse.get(posicion)).setSaldo(nuevodineroconce);
-                    }else{
-                        System.out.println("La posicion es incorrecta o su saldo es insuficiente");
-                    }
-
+                    } while (compra != 3);
                 }
                 break;//fin case 4 principal
             }
