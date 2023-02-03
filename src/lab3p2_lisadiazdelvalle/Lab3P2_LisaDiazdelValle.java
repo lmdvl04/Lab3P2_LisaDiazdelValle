@@ -219,7 +219,7 @@ public class Lab3P2_LisaDiazdelValle {
                                 break;
                             }
 
-                        } while (menuvehi != 5);
+                        } while (menuvehi != 4);
                     } else {
                         System.out.println("Necesita crear al menos una concesionaria");
                     }
@@ -233,14 +233,32 @@ public class Lab3P2_LisaDiazdelValle {
                             listav += "" + vehi.indexOf(v) + " : " + v + "\n";
                         }
                     }
+                    String listac = "";
+                    for (Object c : cliente) {
+                        if (c instanceof clientes) {
+                            listac += "" + cliente.indexOf(c) + " : " + c + "\n";
+                        }
+                    }
                     System.out.println(listav);
+                    System.out.println(listac);
+
+                    System.out.println("Ingrese el indice del cliente que esta comprando: ");
+                    int poscliente = leer.nextInt();
                     System.out.println("Ingrese el indice que quiere comprar");
                     int posicion = leer.nextInt();
-                    if (vehi.get(posicion) instanceof vehiculo && posicion >= 0 && posicion < vehi.size()) {
+
+                    double saldocliente = ((clientes) cliente.get(poscliente)).getSaldo();
+                    double preciocarro = ((vehiculo) vehi.get(posicion)).getPrecio();
+                    double dineroc = ((consecionaria) conse.get(posicion)).getSaldo();
+
+                    if (vehi.get(posicion) instanceof vehiculo && posicion >= 0 && posicion < vehi.size() && saldocliente > preciocarro) {
                         vehi.remove(posicion);
-                        ((clientes)cliente.get(posicion)).getVehiculos().add(vehi.get(posicion));
+                        ((clientes) cliente.get(poscliente)).getVehiculos().add(vehi.get(posicion));
                         System.out.println(cliente);
-                       
+                        double nuevodineroconce = dineroc + preciocarro;
+                        ((consecionaria)conse.get(posicion)).setSaldo(nuevodineroconce);
+                    }else{
+                        System.out.println("La posicion es incorrecta o su saldo es insuficiente");
                     }
 
                 }
